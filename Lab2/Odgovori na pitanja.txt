@@ -1,0 +1,13 @@
+
+Pitanje: što radi linija koda client_socket.connect((host,port))? 
+Odgovor: spaja klijenta na odredišni host na upisani port (npr. na 9999 koji je na serveru podešen)
+
+
+
+Pitanje: U serverskom dijelu vašeg programa, što znači drugi broj u zagradama kod ispisa „Got connection...“?
+
+Odgovor: to je random port Ephermal Port (u mom primjeru 61357 i 61358) putem kojeg se klijentska skripta spojila na serverski port 9999
+
+
+
+ 
