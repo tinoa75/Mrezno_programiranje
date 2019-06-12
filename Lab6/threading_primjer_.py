@@ -1,8 +1,14 @@
 #threading_primjer_.py
-#Mrezno programiranje LABno6 2019
+#Mrezno programiranje LABno6 12.6.2019
 
 import thread
 import time
+
+
+import datetime
+from local_machine_info import print_machine_info
+
+
 # Definicija funkcije za nit
 
 def print_time( threadName, delay): 
