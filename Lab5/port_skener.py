@@ -1,30 +1,28 @@
-#port_skener
-
 import socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 import datetime
-import nmap
 
 from local_machine_info import print_machine_info
- 
-print (datetime.datetime.now())
+
+datum = datetime.datetime.now()
+print(datum)
 print_machine_info()
 
-nmScan = nmap.PortScanner()
+host = raw_input("Unesite adresu hosta koju zelite testirati: ")
+host_ip = socket.gethostbyname(host)
 
+print("Unesite od kojeg do kojeg porta zelite napraviti skeniranje")
 
-target = input("Upisite IP adresu koju cemo skenirati: ")
+start = raw_input("Pocetni port: ")
+end = raw_input("Zavrsni port: ")
 
-nmScan.scan('127.0.0.1', '12340-12350')
+for port in range(int(start), int(end)+1):
+	print("Skeniranje porta %d") % (port)
 
-def scanner(port):
-    try:
-        sock.connect((target, port))
-        return True
-    except:
-        return False
-
-for portNumber in range(12340,12350):
-    print("Scanning port", portNumber)
-if scanner(portNumber):
-    print('[*] Port', portNumber, '/tcp','is open')
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	
+	result = s.connect_ex((host,port))
+	if result == 0:
+		print "Port je otvoren"
+	else:
+		print "Port je zatvoren"
+	s.close()
