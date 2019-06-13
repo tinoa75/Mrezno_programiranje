@@ -1,8 +1,15 @@
 #threading_primjer_.py
-#Mrezno programiranje LABno6 12.6.2019
+#Mrezno programiranje LAB6 12.6.2019
 
 import thread
 import time
+
+import datetime
+from local_machine_info import print_machine_info
+
+datum = datetime.datetime.now()
+print(datum)
+print_machine_info()
 
 
 import datetime
